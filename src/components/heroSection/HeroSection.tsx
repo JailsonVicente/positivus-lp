@@ -1,4 +1,5 @@
 import Header from "./Header";
+import Home from "./Home";
 
 export default function HeroSection() {
     return(
@@ -6,6 +7,7 @@ export default function HeroSection() {
             
         `}>
             <Header/>
+            <Home/>
         </section>
     )
 }

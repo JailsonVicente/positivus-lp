@@ -8,9 +8,10 @@ export default function Header() {
     return (
         <header className={`
             flex justify-between items-center
+            h-[23.61px] lg:h-[198px]
         `}>
             <Image
-                src={"assets/Logo.svg"}
+                src={"/assets/Logo.svg"}
                 width={144}
                 height={23.61}
                 alt='logo'
