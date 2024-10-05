@@ -160,7 +160,7 @@ const CardProcess: React.FC = () => {
                         <div className={`w-full transition-all duration-300 ${isActive ? 'bg-Green text-White rounded-[30px] shadow-[0px_5px_0px_0px_#191A23] border border-black' : 'bg-Grey rounded-[45px] shadow-[0px_5px_0px_0px_#191A23] border border-black'}`}>
                             <button
                                 onClick={() => toggleItem(index)}
-                                className="flex justify-between w-full p-[20px] items-center "
+                                className="flex justify-between w-full p-[20px] items-center hover:scale-100"
                             >
                                 <div className="flex items-center gap-[33px] text-left">
                                     <span className="font-medium text-[33px] lg:text-[60px]">{item.number}</span>

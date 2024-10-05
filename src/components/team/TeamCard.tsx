@@ -10,9 +10,9 @@ interface cardProps {
 export default function TeamCard(props: cardProps){
     return(
         <div className={`
-            h-[294.82px] rounded-[45px] bg-[#FFFFFF]
+            h-[300px] rounded-[45px] bg-[#FFFFFF]
             border border-Dark shadow-[0px_5px_0px_0px_#191A23]
-            px-[35px] py-[40px]  lg:h-[331px]
+            px-[35px] py-[40px]  lg:h-[350px]
         `}>
             <div  className="flex pb-[20px] border-b border-black relative justify-between">
                 <div> 

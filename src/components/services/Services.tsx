@@ -3,7 +3,7 @@ import CardService from "./CardService";
 
 export default function Services() {
     return (
-        <section className="">
+        <section className="" id="services">
             <div className={`
                     flex flex-col items-center
                     lg:flex-row lg:items-center lg:h-[51px] lg:mt-[140px] lg:mb-[80px]

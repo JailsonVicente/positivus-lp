@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function CaseStudies() {
     return (
-        <section className="flex flex-col items-center">
+        <section className="flex flex-col items-center" id="caseStudies">
             <div className={`
                     flex flex-col items-center w-full
                     lg:flex-row lg:items-center lg:h-[51px] lg:mt-[140px] lg:mb-[80px]

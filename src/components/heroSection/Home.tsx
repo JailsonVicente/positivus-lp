@@ -73,7 +73,7 @@ const DesktopComponent = () => {
 
 const MobileComponent = () => {
     return (
-        <section>
+        <section className="sm:flex sm:flex-col sm:items-center">
             <div>
                 <h1 className="leading-[54.9px] pt-[30px]">Navigating the digital landscape for success</h1>
             </div>
@@ -153,7 +153,7 @@ const Home = () => {
     }, []);
 
     return (
-        <div>
+        <div id="home">
             {isDesktop ? <DesktopComponent /> : <MobileComponent />}
         </div>
     );

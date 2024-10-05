@@ -31,7 +31,7 @@ export default function SliderCard(props: teste) {
 
         `}>
             <div className="relative flex justify-center p-[30px] text-white lg:w-[606px]">
-                <p className="z-10">"We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence."</p>
+                <p className="z-10">&quot;We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence.&quot;</p>
                 
                 {isLg ? (
                     <Image
@@ -47,7 +47,7 @@ export default function SliderCard(props: teste) {
                         height={326.38}
                         src={"/assets/Bubble.svg"}
                         alt="svg"
-                        className="absolute top-0"
+                        className="absolute top-0 sm:hidden"
                     />
                 )}
             </div>

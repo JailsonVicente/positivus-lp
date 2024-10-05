@@ -57,7 +57,7 @@ export default function Slider() {
     };
 
     return (
-        <div className="flex flex-col items-center relative w-[90vw] lg:max-w-[1500px] h-auto gap-4 bg-Dark rounded-[45px]">
+        <div className="flex flex-col items-center relative w-[90vw]  h-auto gap-4 bg-Dark rounded-[45px]">
             <div className="w-full relative overflow-hidden h-[554px] lg:h-[625px] rounded-[45px]" >
                 <div className="relative w-full h-full">
                     <div
