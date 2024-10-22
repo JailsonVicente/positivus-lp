@@ -35,7 +35,7 @@ export default function Slider() {
             setTimeout(() => {
                 setCurrentIndex(newIndex);
                 setIsAnimating(false);
-            }, 700); // Duração da animação mais curta (700ms)
+            }, 700);
         }
     };
 
@@ -82,7 +82,7 @@ export default function Slider() {
                     </div>
                 </div>
             </div>
-            <div className="flex bottom-[20px] lg:bottom-[68px] gap-[72px] lg:gap-[208px] absolute justify-center py-2">
+            <div className="flex bottom-[20px] lg:bottom-[68px] gap-[32px] sm:gap-[72px] lg:gap-[208px] absolute justify-center py-2">
                 <button onClick={prevSlide} className="hover:scale-150 active:scale-100">
                     <svg
                         width="24"

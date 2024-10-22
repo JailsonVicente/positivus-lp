@@ -26,32 +26,28 @@ export default function SliderCard(props: teste) {
 
     return (
         <div className={`
-            h-[554px] lg:h-[625px] rounded-[45px] bg-Dark p-[30px]
-            flex  flex-col lg:items-center gap-[30px] lg:gap-[40px] lg:pt-[84px]
-
+            rounded-[45px] bg-Dark
+            flex  flex-col lg:items-center
         `}>
-            <div className="relative flex justify-center p-[30px] text-white lg:w-[606px]">
-                <p className="z-10">&quot;We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence.&quot;</p>
-                
+            <div className="flex justify-center p-[30px] text-white lg:w-[606px] gap-[30px] lg:gap-[40px]">
+
                 {isLg ? (
                     <Image
                         width={606}
                         height={266}
-                        src={"/assets/BubbleLG.svg"}
-                        alt="svg-large"
-                        className="absolute top-0"
+                        src={"/assets/Bubble.png"}
+                        alt="Image-large"
                     />
                 ) : (
                     <Image
                         width={330}
                         height={326.38}
-                        src={"/assets/Bubble.svg"}
-                        alt="svg"
-                        className="absolute top-0 sm:hidden"
+                        src={"/assets/BubbleSM.png"}
+                        alt="Image-small"
                     />
                 )}
             </div>
-            <div className='lg:w-[606px] lg:mt-[20px] ml-[60px] lg:ml-[140px]'>
+            <div className='flex flex-col items-center'>
                 <h4 className='text-Green'>{props.nameTeste}</h4>
                 <span className='text-white'>{props.position}</span>
             </div>
