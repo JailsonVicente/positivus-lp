@@ -2,69 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
-h1{
+/* Global Heading Styles */
+h1 {
   font-size: 60px;
 }
 
-h2{
+h2 {
   font-size: 40px;
 }
 
-h3{
+h3 {
   font-size: 30px;
 }
 
-h4{
+h4 {
   font-size: 20px;
 }
 
-p{
+p {
   font-size: 18px;
 }
 
-@media (max-width: 600px){
-  h1{
+/* Responsive Font Sizes */
+@media (max-width: 600px) {
+  h1 {
     font-size: 43px;
   }
-  
-  h2{
+
+  h2 {
     font-size: 36px;
   }
-  
-  h3{
+
+  h3 {
     font-size: 26px;
   }
-  
-  h4{
+
+  h4 {
     font-size: 18px;
   }
-  
-  p{
+
+  p {
     font-size: 16px;
     line-height: 24px;
   }
 
-  button:active{
+  /* Button Hover and Active Styles */
+  button:active {
     --tw-scale-x: 1.1;
     --tw-scale-y: 1.1;
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    transform: scale(var(--tw-scale-x), var(--tw-scale-y));
   }
 
-  button:hover{
+  button:hover {
     --tw-scale-x: 1.05;
     --tw-scale-y: 1.05;
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    transform: scale(var(--tw-scale-x), var(--tw-scale-y));
   }
 }
 
-@media (min-width: 600px){
-  button:hover{
+@media (min-width: 600px) {
+  button:hover {
     --tw-scale-x: 1.1;
     --tw-scale-y: 1.1;
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    transform: scale(var(--tw-scale-x), var(--tw-scale-y));
   }
 }
 
+/* Radio Button Styles */
 input[type="radio"] {
   width: 28px;
   height: 28px;
@@ -103,14 +107,12 @@ input[type="radio"]:checked::before {
 
 input[type="radio"]:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(185, 255, 102, 0.5); /* Somente um realce de foco opcional */
+  box-shadow: 0 0 0 3px rgba(185, 255, 102, 0.5); /* Optional focus highlight */
 }
 
-
-
-button:active{
+/* Ensure Button Active States Reset */
+button:active {
   --tw-scale-x: 1;
   --tw-scale-y: 1;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: scale(var(--tw-scale-x), var(--tw-scale-y));
 }
-

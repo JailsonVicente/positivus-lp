@@ -1,11 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from "react"; // Added useState import
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const DesktopComponent = () => {
     const headingRef = useRef(null);
@@ -27,12 +24,6 @@ const DesktopComponent = () => {
         );
 
         gsap.fromTo(
-            buttonRef.current,
-            { opacity: 0, scale: 0.8 },
-            { opacity: 1, scale: 1, duration: 1.5, ease: "elastic.out(1, 0.5)", delay: 1 }
-        );
-
-        gsap.fromTo(
             imageRef.current,
             { opacity: 0, x: 50 },
             { opacity: 1, x: 0, duration: 1.5, ease: "power4.out", delay: 1.2 }
@@ -43,18 +34,16 @@ const DesktopComponent = () => {
         <section>
             <div className="flex w-full justify-between">
                 <div className="w-[531px] flex flex-col gap-[35px]">
-                    <div>
-                        <h1 ref={headingRef} className="leading-[74px] pt-[30px]">
-                            Navigating the digital landscape for success
-                        </h1>
-                    </div>
+                    <h1 ref={headingRef} className="leading-[74px] pt-[30px]">
+                        Navigating the digital landscape for success
+                    </h1>
                     <div>
                         <p ref={textRef} className="text-left leading-[28px]">
                             Our digital marketing agency helps businesses grow and succeed online through a range of services including SEO, PPC, social media marketing, and content creation.
                         </p>
                         <button
                             ref={buttonRef}
-                            className="w-full h-[68px] rounded-[14px] bg-Dark my-[40px] text-white"
+                            className="w-full h-[68px] rounded-[14px] bg-Dark my-[40px] text-white cursor-pointer transition-transform duration-200 ease-in-out transform hover:scale-105 active:scale-98"
                         >
                             Book a consultation
                         </button>
@@ -68,7 +57,6 @@ const DesktopComponent = () => {
                     alt="Illustration Home"
                 />
             </div>
-
             {/* Other static images */}
             <div className="flex w-full items-center justify-between mb-[140px] mt-[90px]">
                 <Image height={28} width={104.11} src="/assets/Amazon.png" alt="Amazon" />
@@ -83,10 +71,8 @@ const DesktopComponent = () => {
 };
 
 const MobileComponent = () => {
-    // Similar structure to DesktopComponent with refs and animations for mobile
     const headingRef = useRef(null);
     const textRef = useRef(null);
-    const buttonRef = useRef(null);
     const imageRef = useRef(null);
 
     useEffect(() => {
@@ -103,17 +89,16 @@ const MobileComponent = () => {
         );
 
         gsap.fromTo(
-            buttonRef.current,
-            { opacity: 0, scale: 0.8 },
-            { opacity: 1, scale: 1, duration: 1.5, ease: "elastic.out(1, 0.5)", delay: 1 }
-        );
-
-        gsap.fromTo(
             imageRef.current,
             { opacity: 0, x: 50 },
             { opacity: 1, x: 0, duration: 1.5, ease: "power4.out", delay: 1.2 }
         );
     }, []);
+
+    // Corrected book function definition
+    const book = () => {
+        alert("It's just a portfolio project");
+    };
 
     return (
         <section className="sm:flex sm:flex-col sm:items-center">
@@ -134,8 +119,8 @@ const MobileComponent = () => {
                     Our digital marketing agency helps businesses grow and succeed online through a range of services including SEO, PPC, social media marketing, and content creation.
                 </p>
                 <button
-                    ref={buttonRef}
-                    className="w-full h-[68px] rounded-[14px] bg-Dark my-[40px] text-white"
+                    className="w-full h-[68px] rounded-[14px] bg-Dark my-[40px] text-white cursor-pointer transition-transform duration-200 ease-in-out transform hover:scale-105 active:scale-90"
+                    onClick={book}
                 >
                     Book a consultation
                 </button>
@@ -169,4 +154,3 @@ const Home = () => {
 };
 
 export default Home;
-
