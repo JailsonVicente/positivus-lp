@@ -1,91 +1,9 @@
-"use client"
+"use client";
 
 import Image from "next/image";
-import { useState } from "react";
-
-
-// interface FAQItem {
-//     question: string;
-//     answer: string;
-//     number: string;
-// }
-
-// const faqData: FAQItem[] = [
-//     {
-//         number: "01",
-//         question: "O que é Next.js?",
-//         answer: "Next.js é um framework React para desenvolvimento de aplicações web, que permite renderização do lado do servidor e geração de sites estáticos.",
-//     },
-//     {
-//         number: "02",
-//         question: "O que é Tailwind CSS?",
-//         answer: "Tailwind CSS é um framework de CSS utilitário que permite estilizar rapidamente aplicações usando classes utilitárias.",
-//     },
-//     {
-//         number: "03",
-//         question: "Como funciona a renderização em Next.js?",
-//         answer: "Next.js pode renderizar páginas no lado do servidor (SSR) ou gerar páginas estáticas (SSG), dependendo da configuração.",
-//     },
-// ];
-
-// const CardProcess: React.FC = () => {
-//     const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-//     const toggleItem = (index: number) => {
-//         setOpenIndex(openIndex === index ? null : index);
-//     };
-
-//     const renderIcon = (index: number) => {
-//         return openIndex === index ? (
-//             <Image
-//                 width={58}
-//                 height={58}
-//                 src={"/assets/MinusIcon.svg"}
-//                 alt="Minus Icon"
-//             />
-//         ) : (
-//             <Image
-//                 width={58}
-//                 height={58}
-//                 src={"/assets/PlusIcon.svg"}
-//                 alt="Plus Icon"
-//             />
-//         );
-//     };
-
-//     return (
-//         <div className="">
-//             {faqData.map((item, index) => {
-//                 const isActive = openIndex === index;
-//                 return (
-//                     <div key={index} className="flex flex-col">
-//                         <button
-//                             onClick={() => toggleItem(index)}
-//                             className={`flex justify-between w-full p-[30px] items-center
-//                                 ${isActive ? 'bg-Green text-White shadow-none rounded-[30px] rounded-b-none' : 'bg-Grey shadow-[0px_5px_0px_0px_#191A23] rounded-[45px]'}
-//                             `}
-//                         >
-//                             <div className="flex items-center gap-[33px]">
-//                                 <span className="font-medium text-[33px] lg:text-[60px]">{item.number}</span>
-//                                 <span className="font-medium text-[18px] lg:text-[30px]">{item.question}</span>
-//                             </div>
-//                             {renderIcon(index)}
-//                         </button>
-//                         {isActive && (
-//                             <div className={`bg-Green p-[20px] rounded-b-[30px] transition-all duration-300`}>
-//                                 <p className="text-[16px] lg:text-[24px] text-White">
-//                                     {item.answer}
-//                                 </p>
-//                             </div>
-//                         )}
-//                     </div>
-//                 );
-//             })}
-//         </div>
-//     );
-// };
-
-// export default CardProcess;
+import { useEffect, useState, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 interface FAQItem {
     question: string;
@@ -128,6 +46,7 @@ const faqData: FAQItem[] = [
 
 const CardProcess: React.FC = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
+    const cardRefs = useRef<(HTMLDivElement | null)[]>([]); // Array of refs for the cards
 
     const toggleItem = (index: number) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -135,28 +54,47 @@ const CardProcess: React.FC = () => {
 
     const renderIcon = (index: number) => {
         return openIndex === index ? (
-            <Image
-                width={58}
-                height={58}
-                src={"/assets/MinusIcon.svg"}
-                alt="Minus Icon"
-            />
+            <Image width={58} height={58} src={"/assets/MinusIcon.svg"} alt="Minus Icon" />
         ) : (
-            <Image
-                width={58}
-                height={58}
-                src={"/assets/PlusIcon.svg"}
-                alt="Plus Icon"
-            />
+            <Image width={58} height={58} src={"/assets/PlusIcon.svg"} alt="Plus Icon" />
         );
     };
+
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animate each card on scroll
+        cardRefs.current.forEach((el, index) => {
+            if (el) {
+                gsap.fromTo(
+                    el,
+                    { opacity: 0, y: 50 }, // Start off-screen
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1.2,
+                        ease: "power4.out",
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top 80%",
+                            toggleActions: "play none none none",
+                        },
+                    }
+                );
+            }
+        });
+    }, []);
 
     return (
         <div className="flex flex-col gap-5 mb-[140px]">
             {faqData.map((item, index) => {
                 const isActive = openIndex === index;
                 return (
-                    <div key={index} className="flex flex-col gap-[20px]">
+                    <div
+                        key={index}
+                        ref={(el) => {cardRefs.current[index] = el}} // Assign ref for each card
+                        className="flex flex-col gap-[20px]"
+                    >
                         <div className={`w-full transition-all duration-300 ${isActive ? 'bg-Green text-White rounded-[30px] shadow-[0px_5px_0px_0px_#191A23] border border-black' : 'bg-Grey rounded-[45px] shadow-[0px_5px_0px_0px_#191A23] border border-black'}`}>
                             <button
                                 onClick={() => toggleItem(index)}
@@ -167,12 +105,10 @@ const CardProcess: React.FC = () => {
                                     <span className="font-medium text-[18px] lg:text-[30px]">{item.question}</span>
                                 </div>
                                 {renderIcon(index)}
-                                
                             </button>
                             {isActive && (
                                 <div className="p-[20px]">
-                                    
-                                    <p className=" border-t-[1px] border-black pt-[30px]">
+                                    <p className="border-t-[1px] border-black pt-[30px]">
                                         {item.answer}
                                     </p>
                                 </div>
