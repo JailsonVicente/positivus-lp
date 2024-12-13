@@ -95,7 +95,6 @@ const MobileComponent = () => {
         );
     }, []);
 
-    // Corrected book function definition
     const book = () => {
         alert("It's just a portfolio project");
     };

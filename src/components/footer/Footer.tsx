@@ -98,7 +98,7 @@ export default function Footer() {
             </div>
             <div className="bg-white h-[1px] w-full my-[37px]"></div>
                 <div className="flex flex-col items-center gap-[15px] lg:flex-row lg:mb-[50px] lg:gap-[40px]">
-                    <span className="text-[16px] w-[295px] text-center lg:w-auto">© 2023 Positivus. All Rights Reserved.</span>
+                    <span className="text-[16px] w-[295px] text-center lg:w-auto">© 2023 VAL. All Rights Reserved.</span>
                     <span className="text-[16px] w-[295px] text-center underline cursor-pointer lg:w-auto">Privacy Policy</span>
                 </div>
         </section>
