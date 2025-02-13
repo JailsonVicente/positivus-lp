@@ -26,7 +26,7 @@ const DesktopComponent = () => {
         gsap.fromTo(
             imageRef.current,
             { opacity: 0, x: 50 },
-            { opacity: 1, x: 0, duration: 1.5, ease: "power4.out", delay: 1.2 }
+            { opacity: 1, x: 0, duration: 1.5, ease: "power4.out", delay: 0.75 }
         );
     }, []);
 
