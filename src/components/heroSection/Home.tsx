@@ -57,7 +57,6 @@ const DesktopComponent = () => {
                     alt="Illustration Home"
                 />
             </div>
-            {/* Other static images */}
             <div className="flex w-full items-center justify-between mb-[140px] mt-[90px]">
                 <Image height={28} width={104.11} src="/assets/Amazon.png" alt="Amazon" />
                 <Image height={28} width={106.37} src="/assets/Dribbble.png" alt="Dribbble" />
@@ -100,19 +99,23 @@ const MobileComponent = () => {
     };
 
     return (
-        <section className="sm:flex sm:flex-col sm:items-center">
+        <section className="flex flex-col items-center h-screen justify-around">
             <div>
                 <h1 ref={headingRef} className="leading-[54.9px] pt-[30px]">
                     Navigating the digital landscape for success
                 </h1>
             </div>
-            <Image
-                ref={imageRef}
-                height={310}
-                width={361.44}
-                src="/assets/IllustrationDesktop.svg"
-                alt="Illustration Home"
-            />
+            <div>   
+                <Image
+                    ref={imageRef}
+                    height={310}
+                    width={361.44}
+                    src="/assets/IllustrationDesktop.svg"
+                    alt="Illustration Home"
+                    className="sm:h-[360px] sm:w-[411.44px]"
+                />
+            </div>
+
             <div>
                 <p ref={textRef} className="text-left">
                     Our digital marketing agency helps businesses grow and succeed online through a range of services including SEO, PPC, social media marketing, and content creation.
@@ -124,7 +127,6 @@ const MobileComponent = () => {
                     Book a consultation
                 </button>
             </div>
-            {/* Logos section (same as in DesktopComponent) */}
         </section>
     );
 };

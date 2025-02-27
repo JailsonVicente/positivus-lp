@@ -13,7 +13,6 @@ export default function Testimonials() {
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
 
-        // Animate heading and text on scroll
         gsap.fromTo(
             headingRef.current,
             { opacity: 0, y: -50 },
@@ -77,7 +76,7 @@ export default function Testimonials() {
                     Hear from Our Satisfied Clients: Read Our Testimonials to Learn More about Our Digital Marketing Services
                 </p>
             </div>
-            <div className="flex" ref={sliderRef}>
+            <div className="flex justify-center" ref={sliderRef}>
                 <Slider />
             </div>
         </section>

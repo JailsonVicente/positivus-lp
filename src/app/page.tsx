@@ -13,7 +13,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main>
-      <div  className="px-[20px] lg:px-[100px] pt-[30px] lg:pt-[0px]">
+      <div  className="px-[20px] lg:px-[100px] pt-[30px] lg:pt-[0px] overflow-x-hidden">
           <HeroSection/>
           <Services/>
           <CaseStudies/>
